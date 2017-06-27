@@ -1,0 +1,30 @@
+package com.forefront.tasklistspring.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping(value="/tasks")
+public class TaskListController {
+
+	@ModelAttribute("moduleName")
+	public String moduleName() {
+		return "Example";
+	}
+	
+	@RequestMapping(value = "")
+	public String getAll(Model model){
+		return "taskList/tasks";
+	}
+	
+	@RequestMapping(value = "/{listId}")
+	public String getList(@PathVariable(value="listId") String id, Model model){
+		model.addAttribute("id", id);
+		return "taskList/task";
+	}
+	
+}

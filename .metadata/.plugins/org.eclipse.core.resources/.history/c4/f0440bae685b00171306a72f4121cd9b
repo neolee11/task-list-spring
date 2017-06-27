@@ -1,0 +1,10 @@
+package com.forefront.tasklistspring.service;
+
+import com.forefront.tasklistspring.model.Task;
+
+public class TaskService {
+
+	public Task CreateNewTask(String title){
+		return new Task(title);
+	}
+}

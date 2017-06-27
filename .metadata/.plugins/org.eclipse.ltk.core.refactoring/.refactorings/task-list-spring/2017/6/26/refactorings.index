@@ -1,0 +1,13 @@
+1498586684097	Move compilation unit
+1498586688589	Delete element
+1498587082439	Rename resource 'todoList'
+1498587113668	Rename resource 'toDoList.html'
+1498587171422	Rename resource 'lists.html'
+1498587468285	Rename resource 'tasks.html'
+1498588400295	Rename type 'TaskList'
+1498588692562	Copy compilation unit
+1498588825298	Delete element
+1498589389468	Encapsulate field 'taskStatus'
+1498589572265	Move method
+1498589576811	Move method
+1498589583430	Move method

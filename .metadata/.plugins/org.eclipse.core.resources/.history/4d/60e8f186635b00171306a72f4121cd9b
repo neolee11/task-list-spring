@@ -1,0 +1,12 @@
+package com.forefront.tasklistspring.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.forefront.todospring.model.TodoList;
+
+public class TodoListService {
+
+	public TodoList CreateNewList(String title){
+		return new TodoList(title);
+	}
+}

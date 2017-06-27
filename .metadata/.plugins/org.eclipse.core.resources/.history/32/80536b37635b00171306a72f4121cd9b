@@ -1,0 +1,5 @@
+package com.forefront.todospring.config;
+
+public class PersistenceConfiguration {
+
+}

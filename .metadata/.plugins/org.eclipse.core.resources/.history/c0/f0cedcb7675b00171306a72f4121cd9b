@@ -1,0 +1,13 @@
+package com.forefront.tasklistspring.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.forefront.tasklistspring.model.Task;
+
+
+public class TaskListService {
+
+	public Task CreateNewTask(String title){
+		return new Task(title);
+	}
+}
