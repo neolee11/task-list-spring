@@ -247,3 +247,8 @@ _temp
 !systemjs.config.js
 !typings/typings.d.ts
 !wallaby.js
+
+# maven
+.metadata
+.recommenders
+RemoteSystemsTempFiles
