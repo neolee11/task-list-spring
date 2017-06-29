@@ -3,17 +3,20 @@ package com.forefront.tasklistspring.model;
 import java.time.*;
 
 public class Step {
-	private String name;
+	
+	private Long id;
+	
+	private String content;
 	private ProgressStatus status;
 	private LocalDateTime createdOn;
 	private LocalDateTime completedOn;
 
-	public String getName() {
-		return name;
+	public String getContent() {
+		return content;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setContent(String name) {
+		this.content = name;
 	}
 
 	public ProgressStatus getStatus() {

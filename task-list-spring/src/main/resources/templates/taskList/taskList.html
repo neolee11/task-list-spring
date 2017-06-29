@@ -1,30 +1,65 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>All Tasks List</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="/css/style.css" />
+<title>All Tasks List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-	
+
 	<div class="container">
-		<button class="btn btn-primary" onclick="test()">Toggle Well</button>
+		<!-- 		<button class="btn btn-primary" onclick="test()">Toggle Well</button>
 		<div class="well" id="aWell">2 Well</div>
 		
-		<div>
-			<button class="btn btn-primary">New List</button>
-			
-			<div th:text="${moduleName}"></div>
+ -->
+		<div class="row" style="margin-top: 10px;">
+			<div  class="col-md-8 col-md-offset-2">
+				<div style="margin-bottom: 10px">
+					<button class="btn btn-primary" onclick="createNewTask()">New Task</button>
+					<!-- <div th:text="${moduleName}"></div> -->
+				</div>
+
+				<div>
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<td style="width: 10%; text-align: center;">ID</td>
+								<td style="width: 60%;">Name</td>
+								<td style="width: 15%; text-align: center;">Status</td>
+								<td style="width: 15%; text-align: center;">Rename</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:if="${tasks.empty}">
+								<td colspan="4">No tasks</td>
+							</tr>
+							<tr th:each="task : ${tasks}">
+								<td style="text-align: center;" th:text="${task.id}">1</td>
+								<td><a th:id="'task' + ${task.getId()}" href="#"
+									th:href="@{/tasks/{id}(id=${task.getId()})}"
+									th:text="${task.getName()}">Name ...</a></td>
+
+								<td style="text-align: center;" th:text="${task.getTaskStatus()}">Text ...</td>
+								<td style="text-align: center;">
+									<button class="btn btn-primary"
+										th:onclick="'renameTaskTitle(' + ${task.getId()} + ')'">Rename</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
-		
-		
 	</div>
-	
-	
-	
-	<script type="text/javascript" src="/webjars/jquery/2.2.4/jquery.min.js"></script>	
-	<script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+	<script type="text/javascript"
+		src="/webjars/jquery/2.2.4/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>

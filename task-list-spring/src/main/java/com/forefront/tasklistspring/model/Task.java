@@ -5,17 +5,27 @@ import java.util.List;
 
 public class Task {
 
-	private String title;
+	private Long id;
+	
+	private String name;
 	private List<Step> steps = new ArrayList<>();
 	private ProgressStatus taskStatus = ProgressStatus.NEW;
 	
 	/* Properties */
-	public String getTitle() {
-		return title;
+	public Long getId() {
+		return id;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public ProgressStatus getTaskStatus() {
@@ -33,7 +43,7 @@ public class Task {
 	}
 	
 	public Task(String title) {
-		this.title = title;
+		this.name = title;
 	}
 
 	public boolean AddStep(Step step){
@@ -47,5 +57,6 @@ public class Task {
 	public void CompleteStep(Step step){
 		this.steps.get(this.steps.indexOf(step)).CompleteStep();
 	}
+
 	
 }

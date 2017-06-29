@@ -11,3 +11,19 @@
 1498589572265	Move method
 1498589576811	Move method
 1498589583430	Move method
+1498593485647	Encapsulate field 'id'
+1498594214285	Delete element
+1498598210260	Copy package
+1498664579691	Copy compilation unit
+1498664754506	Rename method 'getName'
+1498664916625	Rename method 'setName'
+1498664963439	Rename method 'getTitle'
+1498666252365	Rename method 'setTitle'
+1498679636995	Copy compilation unit
+1498682391761	Copy compilation unit
+1498683337183	Copy compilation unit
+1498683540587	Infer generic type arguments
+1498684510225	Copy compilation unit
+1498684796262	Rename field 'ErrorMsg'
+1498684804202	Rename field 'Error'
+1498704431090	Copy compilation unit
