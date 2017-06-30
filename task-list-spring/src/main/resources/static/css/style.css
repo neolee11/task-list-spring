@@ -3,3 +3,16 @@
 .test {
 	color: red;
 }
+
+.createNew {
+	font-weight: bold;
+	color: blue;
+}
+
+#createNewTable td {
+	padding-right : 8px;
+}
+
+.mainTopMargin {
+	margin-top: 10px;
+}

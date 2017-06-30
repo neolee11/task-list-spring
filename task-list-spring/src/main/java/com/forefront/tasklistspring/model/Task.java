@@ -36,8 +36,16 @@ public class Task {
 		this.taskStatus = taskStatus;
 	}
 	
+	public List<Step> getSteps() {
+		return steps;
+	}
+
+	public void setSteps(List<Step> steps) {
+		this.steps = steps;
+	}
+	
 	/*
-	 * Constructors and Methods  
+	 * Constructors   
 	 */
 	public Task(){
 	}
@@ -46,6 +54,9 @@ public class Task {
 		this.name = title;
 	}
 
+	/*
+	 * Methods
+	 */
 	public boolean AddStep(Step step){
 		return this.steps.add(step);
 	}
@@ -54,9 +65,15 @@ public class Task {
 		return this.steps.remove(step);
 	}
 	
-	public void CompleteStep(Step step){
-		this.steps.get(this.steps.indexOf(step)).CompleteStep();
+	public Step GetStepById(long stepId){
+		return null;
 	}
+	
+	/*public void CompleteStep(Step step){
+		this.steps.get(this.getSteps().indexOf(step)).CompleteStep();
+	}*/
+
+
 
 	
 }

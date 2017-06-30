@@ -3,17 +3,16 @@
 ## Functionality
 #### Task List
 1. ~~View all~~
-1. Create new
+1. ~~Create new~~
 1. ~~Rename~~
 
 #### Task
-1. Show all steps
-1. Create step
+1. ~~Show all steps~~
+1. ~~Create step~~
 1. Edit step
 1. Delete step
 1. Complete step
 1. Un-complete step
-1. Reorder step
 1. Delete task
 1. Show only Dropdown (completed, all, new)
 

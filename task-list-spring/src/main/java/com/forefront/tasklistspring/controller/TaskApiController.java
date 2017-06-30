@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.forefront.tasklistspring.model.ErrorRequest;
 import com.forefront.tasklistspring.model.Task;
 import com.forefront.tasklistspring.model.TaskNewNameDto;
+import com.forefront.tasklistspring.model.UpdateStepDto;
 import com.forefront.tasklistspring.service.TaskService;
 import com.google.common.base.Strings;
 
@@ -59,4 +60,28 @@ public class TaskApiController {
 			return new ResponseEntity<Task>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	@RequestMapping(value = "/api/tasks/{taskId}/updateStep", method = RequestMethod.POST)
+	public ResponseEntity<?> EditTaskStep(@PathVariable long taskId, @RequestBody UpdateStepDto updatedStepDto) throws Exception {
+
+		if (updatedStepDto == null) {
+			BadRequestError badRequestError = new BadRequestError("No data in the request body");
+			return new ResponseEntity<>(badRequestError, HttpStatus.BAD_REQUEST); 
+		}
+		
+		
+
+//		Task task = this.taskService.UpdateTaskNameById(taskId, newNameDto.newName);
+		
+		/*if(task != null){
+			return new ResponseEntity<Task>(task, HttpStatus.OK);
+		}
+		else{
+			return new ResponseEntity<Task>(HttpStatus.NOT_FOUND);
+		}*/
+		
+		return null;
+	}
+	
+	
 }

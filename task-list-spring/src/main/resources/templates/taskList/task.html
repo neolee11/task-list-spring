@@ -4,18 +4,76 @@
 <head>
 <title>To Do List</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
 <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
 	<div class="container">
-		Single Task
-		<div th:text="${id}" class="well"></div>
+		<div class="row mainTopMargin">
+			<div class="col-md-12">
+
+				<div style="margin-bottom: 10px">
+					<form action="#" th:action="@{/tasks/{id}(id=${task.id})}" method="post" th:object="${newStep}">
+						<table id="createNewTable">
+							<tr>
+								<td><input type="hidden" th:field="*{taskId}" th:value="${taskId}" /></td>
+								<td><span class="createNew">New Step Name</span></td>
+			                    <td><input type="text" th:field="*{stepContent}" /></td>
+			                    <td><input type="submit" value="Create New Step" class="btn btn-primary"/></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+
+				<div>
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<td style="width: 37%;">Content</td>
+								<td style="width: 8%; text-align: center;">Status</td>
+								<td style="width: 15%; text-align: center;">Created On</td>
+								<td style="width: 15%; text-align: center;">Complete On</td>
+								<td style="width: 25%; text-align: center;">Operations</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:if="${task.steps.empty}">
+								<td colspan="4">No tasks</td>
+							</tr>
+							<tr th:each="step : ${task.steps}">
+								<td th:text="${step.content}">Content ...</td>
+
+								<td style="text-align: center;"
+									th:text="${step.status}">Text ...</td>
+								
+								<td style="text-align: center;" th:text="${#temporals.day(date)}"></td>	
+								<td style="text-align: center;" th:text="${step.completedOn}"></td>	
+								<td style="text-align: center;">
+									<button class="btn btn-primary" th:onclick="'alert(\'edit\')'">Edit</button>
+									<button class="btn btn-primary" th:onclick="'alert(\'toggle\')'">Toggle Status</button>
+									<button class="btn btn-primary" th:onclick="'alert(\'delete\')'">Delete</button>
+								</td>
+								
+								
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<div>
+					<button class="btn btn-primary" th:onclick="'alert(\'Delete Task\')'">Delete Task</button>
+				</div>
+			</div>
+		</div>
+
 	</div>
 
 
-	<script type="text/javascript" src="/webjars/jquery/2.2.4/jquery.min.js"></script>
-	<script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="/webjars/jquery/2.2.4/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>

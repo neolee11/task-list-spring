@@ -10,15 +10,26 @@
 <body>
 
 	<div class="container">
-		<!-- 		<button class="btn btn-primary" onclick="test()">Toggle Well</button>
-		<div class="well" id="aWell">2 Well</div>
-		
- -->
-		<div class="row" style="margin-top: 10px;">
+		<!-- 		
+			<button class="btn btn-primary" onclick="test()">Toggle Well</button>
+			<div class="well" id="aWell">2 Well</div>
+			<div th:text="${moduleName}"></div>
+ 		-->
+ 		
+		<div class="row mainTopMargin">
 			<div  class="col-md-8 col-md-offset-2">
+			
 				<div style="margin-bottom: 10px">
-					<button class="btn btn-primary" onclick="createNewTask()">New Task</button>
-					<!-- <div th:text="${moduleName}"></div> -->
+				
+					<form action="#" th:action="@{/tasks}" method="post" th:object="${newTask}">
+						<table id="createNewTable">
+							<tr>
+								<td><span class="createNew">New Task Name</span></td>
+			                    <td><input type="text" th:field="*{taskName}" /></td>
+			                    <td><input type="submit" value="Create New Task" class="btn btn-primary"/></td>
+							</tr>
+						</table>
+					</form>
 				</div>
 
 				<div>
