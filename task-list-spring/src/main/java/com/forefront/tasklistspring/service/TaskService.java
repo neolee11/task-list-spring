@@ -78,8 +78,12 @@ public class TaskService {
 	}
 	
 	public boolean DeleteTask(long id){
-		Task task = GetTaskById(id);
-		return tasks.remove(task);
+		Task existing = this.repo.findOne(id);
+		this.repo.delete(existing);
+		
+		return true;
+//		Task task = GetTaskById(id);
+//		return tasks.remove(task);
 	}
 	
 	/*
@@ -90,8 +94,7 @@ public class TaskService {
 		if(task == null) return null;
 		
 		task.AddStep(new Step(stepContent));
-		
-		return task;
+		return this.repo.saveAndFlush(task);
 	}
 	
 	public Step UpdateStep(long taskId, UpdateStepDto updatedStep){
@@ -109,12 +112,18 @@ public class TaskService {
 			step.ToggleStatus();
 		}
 		
+		this.repo.saveAndFlush(task);
+		
 		return step;
 	}
 	
 	public boolean DeleteStep(long taskId, long stepId){
+		
 		Task task = GetTaskById(taskId);
-		return task.RemoveStepById(stepId);
+		task.RemoveStepById(stepId);
+		
+		this.repo.saveAndFlush(task);
+		return true;
 	}
 	
 	
