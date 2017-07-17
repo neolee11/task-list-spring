@@ -30,8 +30,8 @@
 					<table class="table table-bordered table-striped">
 						<thead>
 							<tr>
-								<td style="width: 37%;">Content</td>
-								<td style="width: 8%; text-align: center;">Status</td>
+								<td style="width: 45%;">Content</td>
+								<td style="width: 0%; text-align: center; display: none;">Status</td>
 								<td style="width: 15%; text-align: center;">Created On</td>
 								<td style="width: 15%; text-align: center;">Complete On</td>
 								<td style="width: 25%; text-align: center;">Operations</td>
@@ -42,19 +42,19 @@
 								<td colspan="4">No tasks</td>
 							</tr>
 							<tr th:each="step : ${task.steps}">
-								<td th:text="${step.content}">Content ...</td>
+								<td th:id="'content' + ${step.id}" th:class="${step.status == T(com.forefront.tasklistspring.model.ProgressStatus).COMPLETE} ? complete-step : ''" th:text="${step.content}">Content ...</td>
 
-								<td style="text-align: center;"
-									th:text="${step.status}">Text ...</td>
+								<td th:id="'status' + ${step.id}" style="text-align: center; display: none" th:text="${step.status}">Text ...</td>
 								
-								<td style="text-align: center;" th:text="${#temporals.day(date)}"></td>	
-								<td style="text-align: center;" th:text="${step.completedOn}"></td>	
+								<td style="text-align: center;" th:text="${#temporals.format(step.createdOn, 'MM-dd-yyyy HH:mm')}"></td>	
+								
+								<td th:id="'completedOn' + ${step.id}" style="text-align: center;" th:text="${step.completedOn != null} ? ${#temporals.format(step.completedOn, 'MM-dd-yyyy HH:mm')} : ''"></td>	
+								
 								<td style="text-align: center;">
-									<button class="btn btn-primary" th:onclick="'alert(\'edit\')'">Edit</button>
-									<button class="btn btn-primary" th:onclick="'alert(\'toggle\')'">Toggle Status</button>
-									<button class="btn btn-primary" th:onclick="'alert(\'delete\')'">Delete</button>
+									<button class="btn btn-primary" th:onclick="'updateStepContent(' + ${step.id} + ',' + ${task.id} + ')'">Edit</button>
+									<button class="btn btn-primary" th:onclick="'toggleStepStatus(' + ${step.id} + ',' + ${task.id} + ')'">Toggle Status</button>
+									<button class="btn btn-primary" th:onclick="'deleteStep(' + ${step.id} + ',' + ${task.id} + ')'">Delete</button>
 								</td>
-								
 								
 							</tr>
 						</tbody>
@@ -62,7 +62,8 @@
 				</div>
 				
 				<div>
-					<button class="btn btn-primary" th:onclick="'alert(\'Delete Task\')'">Delete Task</button>
+					<button class="btn btn-primary" th:onclick="'deleteTask('+ ${task.id} + ')'">Delete Task</button>
+					<button class="btn btn-primary" th:onclick="'window.location.href = \'/tasks\''">Back To Tasks</button>
 				</div>
 			</div>
 		</div>

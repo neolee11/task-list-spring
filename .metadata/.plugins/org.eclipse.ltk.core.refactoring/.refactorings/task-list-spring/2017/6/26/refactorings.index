@@ -33,3 +33,5 @@
 1498754771823	Encapsulate field 'stepContent'
 1498761455521	Encapsulate field 'taskId'
 1498768499369	Copy compilation unit
+1498849262889	Encapsulate field 'id'
+1498849646391	Encapsulate field 'toggleStatus'

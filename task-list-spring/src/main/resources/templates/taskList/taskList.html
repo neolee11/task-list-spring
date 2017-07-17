@@ -52,7 +52,7 @@
 									th:href="@{/tasks/{id}(id=${task.getId()})}"
 									th:text="${task.getName()}">Name ...</a></td>
 
-								<td style="text-align: center;" th:text="${task.getTaskStatus()}">Text ...</td>
+								<td style="text-align: center;" th:text="${task.TaskStatus()}">Text ...</td>
 								<td style="text-align: center;">
 									<button class="btn btn-primary"
 										th:onclick="'renameTaskTitle(' + ${task.getId()} + ')'">Rename</button>
@@ -64,8 +64,6 @@
 			</div>
 		</div>
 	</div>
-
-
 
 	<script type="text/javascript"
 		src="/webjars/jquery/2.2.4/jquery.min.js"></script>

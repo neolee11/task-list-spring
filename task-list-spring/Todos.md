@@ -1,5 +1,22 @@
 # Project Tasks
 
+## Tech
+
+#### Spring
+1. ~~Spring Boot~~
+1. ~~Spring MVC~~
+1. ~~Spring MVC Rest Controller~~
+1. ~~thymeleaf~~
+1. H2
+1. save to MySql
+1. repository pattern Spring Data 
+1. Spring REST vs Spring MVC RestController
+1. java core concepts
+1. Testing
+
+#### J2EE
+1. jsp
+
 ## Functionality
 #### Task List
 1. ~~View all~~
@@ -9,29 +26,11 @@
 #### Task
 1. ~~Show all steps~~
 1. ~~Create step~~
-1. Edit step
-1. Delete step
-1. Complete step
-1. Un-complete step
-1. Delete task
-1. Show only Dropdown (completed, all, new)
-
-## Tech
-
-#### Spring
-1. thymeleaf
-1. Todo list UI
-1. models
-1. H2
-1. repository pattern spring data 
-1. save to MySql
-1. java core concepts
-1. Testing
-
-#### J2EE
-1. jsp
-
-
+1. ~~Edit step~~
+1. ~~Toggle step status~~
+1. ~~Step content strike through on status, Task overall status~~
+1. ~~Delete step~~
+1. ~~Delete task~~
 
 ## Markdown features
 [link to google](https://www.google.com)

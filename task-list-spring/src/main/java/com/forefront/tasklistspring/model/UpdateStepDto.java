@@ -8,10 +8,10 @@ public class UpdateStepDto {
 
 	@NotNull
 	private long stepId;
-
 	private String updatedContent;
-
-	private ProgressStatus updatedStatus;
+	private boolean toggleStatus;
+	
+//	private ProgressStatus updatedStatus;
 
 	public long getStepId() {
 		return stepId;
@@ -29,12 +29,14 @@ public class UpdateStepDto {
 		this.updatedContent = updatedContent;
 	}
 
-	public ProgressStatus getUpdatedStatus() {
-		return updatedStatus;
+	public boolean isToggleStatus() {
+		return toggleStatus;
 	}
 
-	public void setUpdatedStatus(ProgressStatus updatedStatus) {
-		this.updatedStatus = updatedStatus;
+	public void setToggleStatus(boolean toggleStatus) {
+		this.toggleStatus = toggleStatus;
 	}
+
+	
 
 }

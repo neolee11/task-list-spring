@@ -9,7 +9,6 @@ public class Task {
 	
 	private String name;
 	private List<Step> steps = new ArrayList<>();
-	private ProgressStatus taskStatus = ProgressStatus.NEW;
 	
 	/* Properties */
 	public Long getId() {
@@ -26,14 +25,6 @@ public class Task {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public ProgressStatus getTaskStatus() {
-		return taskStatus;
-	}
-
-	public void setTaskStatus(ProgressStatus taskStatus) {
-		this.taskStatus = taskStatus;
 	}
 	
 	public List<Step> getSteps() {
@@ -65,8 +56,31 @@ public class Task {
 		return this.steps.remove(step);
 	}
 	
+	public boolean RemoveStepById(long stepId){
+		Step step = GetStepById(stepId);
+		if(step == null) return false;
+		
+		return RemoveStep(step);
+	}
+	
 	public Step GetStepById(long stepId){
+		for(Step step : this.steps){
+			if(step.getId() == stepId){
+				return step;
+			}
+		}
 		return null;
+	}
+	
+	public ProgressStatus TaskStatus() {
+		
+		for(Step step: steps){
+			if(step.getStatus() == ProgressStatus.NEW){
+				return ProgressStatus.NEW;
+			}
+		}
+		
+		return ProgressStatus.COMPLETE;
 	}
 	
 	/*public void CompleteStep(Step step){

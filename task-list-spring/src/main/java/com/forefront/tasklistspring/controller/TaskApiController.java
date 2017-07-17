@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.forefront.tasklistspring.model.ErrorRequest;
+import com.forefront.tasklistspring.model.Step;
 import com.forefront.tasklistspring.model.Task;
 import com.forefront.tasklistspring.model.TaskNewNameDto;
 import com.forefront.tasklistspring.model.UpdateStepDto;
@@ -61,6 +62,19 @@ public class TaskApiController {
 		}
 	}
 	
+	@RequestMapping(value = "/api/tasks/{taskId}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> DeleteTask(@PathVariable long taskId) throws Exception {
+
+		boolean success = this.taskService.DeleteTask(taskId);
+
+		if(success){
+			return new ResponseEntity<Boolean>(success, HttpStatus.OK);
+		}
+		else{
+			return new ResponseEntity<Step>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
 	@RequestMapping(value = "/api/tasks/{taskId}/updateStep", method = RequestMethod.POST)
 	public ResponseEntity<?> EditTaskStep(@PathVariable long taskId, @RequestBody UpdateStepDto updatedStepDto) throws Exception {
 
@@ -69,18 +83,27 @@ public class TaskApiController {
 			return new ResponseEntity<>(badRequestError, HttpStatus.BAD_REQUEST); 
 		}
 		
-		
+		Step step = this.taskService.UpdateStep(taskId, updatedStepDto);
 
-//		Task task = this.taskService.UpdateTaskNameById(taskId, newNameDto.newName);
-		
-		/*if(task != null){
-			return new ResponseEntity<Task>(task, HttpStatus.OK);
+		if(step != null){
+			return new ResponseEntity<Step>(step, HttpStatus.OK);
 		}
 		else{
-			return new ResponseEntity<Task>(HttpStatus.NOT_FOUND);
-		}*/
-		
-		return null;
+			return new ResponseEntity<Step>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value = "/api/tasks/{taskId}/{stepId}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> DeleteTask(@PathVariable long taskId, @PathVariable long stepId) throws Exception {
+
+		boolean success = this.taskService.DeleteStep(taskId, stepId);
+
+		if(success){
+			return new ResponseEntity<Boolean>(success, HttpStatus.OK);
+		}
+		else{
+			return new ResponseEntity<Step>(HttpStatus.NOT_FOUND);
+		}
 	}
 	
 	

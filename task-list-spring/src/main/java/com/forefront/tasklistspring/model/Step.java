@@ -4,7 +4,7 @@ import java.time.*;
 
 public class Step {
 	
-	private Long id = 5L;
+	private Long id;
 	
 	private String content;
 	private ProgressStatus status;
@@ -12,6 +12,14 @@ public class Step {
 	private LocalDateTime completedOn;
 
 	/* Properties */
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getContent() {
 		return content;
 	}
@@ -55,8 +63,25 @@ public class Step {
 		this.createdOn = LocalDateTime.now();
 		this.content = content;
 	}
+	
+	public Step(long id, String content) {
+		this.status = ProgressStatus.NEW;
+		this.createdOn = LocalDateTime.now();
+		
+		this.id = id;
+		this.content = content;
+	}
 
 	/*Methods*/
+	public void ToggleStatus(){
+		if(this.status == ProgressStatus.NEW){
+			this.CompleteStep();
+		}
+		else{
+			this.UnCompleteStep();
+		}
+	}
+	
 	public void CompleteStep(){
 		this.status = ProgressStatus.COMPLETE;
 		this.completedOn = LocalDateTime.now();

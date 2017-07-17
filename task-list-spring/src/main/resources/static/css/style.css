@@ -7,6 +7,7 @@
 .createNew {
 	font-weight: bold;
 	color: blue;
+	font-style: italic;
 }
 
 #createNewTable td {
@@ -15,4 +16,17 @@
 
 .mainTopMargin {
 	margin-top: 10px;
+}
+
+.complete-step {
+	text-decoration: line-through;
+}
+
+.new-step {
+	text-decoration: underline;
+}
+
+thead {
+	font-weight: bold;
+	color: purple;
 }
