@@ -1,9 +1,23 @@
 package com.forefront.tasklistspring.model;
 
-import java.time.*;
+import java.time.LocalDateTime;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="TaskSteps")
 public class Step {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID")
 	private Long id;
 	
 	private String content;
@@ -11,6 +25,11 @@ public class Step {
 	private LocalDateTime createdOn;
 	private LocalDateTime completedOn;
 
+	//DO NOT ADD THE FOREIGN KEY COLUMN TASKID AS A FIELD
+	@ManyToOne
+	@JoinColumn(name="taskId", nullable=false)
+	private Task task;
+	
 	/* Properties */
 	public Long getId() {
 		return id;
@@ -19,7 +38,7 @@ public class Step {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
 	public String getContent() {
 		return content;
 	}
@@ -91,4 +110,6 @@ public class Step {
 		this.status = ProgressStatus.NEW;
 		this.completedOn = null;
 	}
+
+	
 }
