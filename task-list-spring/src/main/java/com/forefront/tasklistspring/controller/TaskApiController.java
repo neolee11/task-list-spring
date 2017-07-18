@@ -83,20 +83,24 @@ public class TaskApiController {
 			return new ResponseEntity<>(badRequestError, HttpStatus.BAD_REQUEST); 
 		}
 		
-		Step step = this.taskService.UpdateStep(taskId, updatedStepDto);
+		Step step = this.taskService.UpdateStep(updatedStepDto);
 
+		step.setCreatedOn(null);
+		step.setCompletedOn(null);
+		
 		if(step != null){
 			return new ResponseEntity<Step>(step, HttpStatus.OK);
 		}
 		else{
 			return new ResponseEntity<Step>(HttpStatus.NOT_FOUND);
 		}
+		
 	}
 	
 	@RequestMapping(value = "/api/tasks/{taskId}/{stepId}", method = RequestMethod.DELETE)
-	public ResponseEntity<?> DeleteTask(@PathVariable long taskId, @PathVariable long stepId) throws Exception {
+	public ResponseEntity<?> DeleteStep(@PathVariable long taskId, @PathVariable long stepId) throws Exception {
 
-		boolean success = this.taskService.DeleteStep(taskId, stepId);
+		boolean success = this.taskService.DeleteStep(stepId);
 
 		if(success){
 			return new ResponseEntity<Boolean>(success, HttpStatus.OK);
