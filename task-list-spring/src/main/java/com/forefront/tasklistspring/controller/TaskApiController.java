@@ -1,6 +1,7 @@
 package com.forefront.tasklistspring.controller;
 
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.forefront.tasklistspring.model.ErrorRequest;
 import com.forefront.tasklistspring.model.Step;
 import com.forefront.tasklistspring.model.Task;
 import com.forefront.tasklistspring.model.TaskNewNameDto;
@@ -29,6 +29,12 @@ public class TaskApiController {
 	@Autowired
 	private TaskService taskService;
 
+	@RequestMapping(value = "/api/tasks", method = RequestMethod.GET)
+	public ResponseEntity<List<Task>> GetAllTasks() throws Exception {
+		List<Task> allTasks = this.taskService.GetAllTasks();
+		return new ResponseEntity<List<Task>>(allTasks, HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = "/api/tasks/{taskId}/rename", method = RequestMethod.POST)
 	public ResponseEntity<?> RenameTaskTitle(@PathVariable long taskId, @RequestBody TaskNewNameDto newNameDto) throws Exception {
 
