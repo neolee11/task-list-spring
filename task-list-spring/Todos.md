@@ -8,7 +8,7 @@
 1. ~~Spring MVC Rest Controller~~
 1. ~~thymeleaf~~
 1. ~~H2~~
-1. save to MySql
+1. ~~MySql~~
 1. Testing
 1. Spring JPA, Spring Data, Repository pattern 
 1. Hibernate

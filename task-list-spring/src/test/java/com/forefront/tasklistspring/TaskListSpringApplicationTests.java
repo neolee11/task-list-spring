@@ -14,6 +14,7 @@ public class TaskListSpringApplicationTests {
 	@Test
 	public void contextLoads() {
 		assertTrue(true);
+		
 	}
 
 }
