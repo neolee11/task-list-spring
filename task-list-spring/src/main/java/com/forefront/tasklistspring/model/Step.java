@@ -13,11 +13,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+// One to Many relationship Json serilization infinite loop solution
+//http://www.baeldung.com/jackson-bidirectional-relationships-and-infinite-recursion
 @Entity
 @Table(name="TaskSteps")
-public class Step implements java.io.Serializable {
+@JsonIdentityInfo(
+		  generator = ObjectIdGenerators.PropertyGenerator.class, 
+		  property = "id")
+public class Step {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

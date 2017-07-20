@@ -84,9 +84,6 @@ public class TaskApiController {
 		}
 		
 		Step step = this.taskService.UpdateStep(updatedStepDto);
-
-		step.setCreatedOn(null);
-		step.setCompletedOn(null);
 		
 		if(step != null){
 			return new ResponseEntity<Step>(step, HttpStatus.OK);

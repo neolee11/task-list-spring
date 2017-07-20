@@ -18,6 +18,11 @@
 	margin-top: 10px;
 }
 
+.task-name-steps {
+	color:blue;
+	font-weight: bold;
+}
+
 .complete-step {
 	text-decoration: line-through;
 }

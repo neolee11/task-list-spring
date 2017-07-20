@@ -7,12 +7,13 @@
 1. ~~Spring MVC~~
 1. ~~Spring MVC Rest Controller~~
 1. ~~thymeleaf~~
-1. H2
+1. ~~H2~~
 1. save to MySql
-1. repository pattern Spring Data 
+1. Testing
+1. Spring JPA, Spring Data, Repository pattern 
+1. Hibernate
 1. Spring REST vs Spring MVC RestController
 1. java core concepts
-1. Testing
 
 #### J2EE
 1. jsp
